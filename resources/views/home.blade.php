@@ -141,7 +141,6 @@
                                     <div class="input-group">
                                         <input
                                             type="text"
-                                            
                                             id="message-input"
                                             class="form-control"
                                             placeholder="Mesaj yaz"
@@ -179,9 +178,10 @@ $("#chat-form").on("submit",function(e){
     e.preventDefault();
     var message = $("#message-input").val();
     if(message.trim().length == 0){
-        $("#message*input").focus();
+        $("#message-input").focus();
     }
-    else{
+    else
+    {
         var data = {
             user_id:user_id,
             other_user_id:other_user_id,
@@ -189,7 +189,7 @@ $("#chat-form").on("submit",function(e){
             otherUserName:otherUserName
         }
         socket.emit('send_message',data);
-        $("#message*input").val();
+        $("#message-input").val('');
     }
 })
   socket.on('user_connected',function(data){
